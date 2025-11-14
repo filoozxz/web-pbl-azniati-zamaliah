@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PBL — Screening Preeklampsia (Tailwind)</title>
+  <link rel="icon" type="icon/png" href="icon.png">
+
+  <!-- Tailwind-->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Minor custom to limit width and smooth transitions */
+    .container-max { max-width: 980px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <nav class="bg-blue-700 text-white shadow">
+    <div class="container-max mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="bg-blue-900 rounded-md w-10 h-10 flex items-center justify-center text-white font-bold">PE</div>
+        <div>
+          <div class="font-semibold text-lg">PBL — Deteksi Dini Preeklampsia</div>
+          <div class="text-xs text-blue-100">Berdasarkan Model Adaptasi Roy</div>
+        </div>
+      </div>
+      <div class="text-sm">
+        <button id="startOverBtn" class="bg-white text-blue-700 px-3 py-1 rounded-md font-semibold hidden
+        transition duration-300 ease-in-out hover:scale-105 shadow-md hover:shadow-xl">Mulai Ulang</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container-max mx-auto px-4 py-8">
+
+    <!-- HERO -->
+    <section id="hero" class="mb-6">
+      <div class="bg-gradient-to-r from-white to-sky-50 rounded-2xl p-6 shadow-md flex flex-col md:flex-row gap-6 items-center">
+        <div class="flex-1">
+          <h1 class="text-2xl md:text-3xl font-bold text-blue-800">Screening Risiko Preeklampsia</h1>
+          <p class="mt-2 text-slate-600">Isi data pasien pada form di bawah (terbagi jadi card). Setelah submit, akan muncul halaman hasil lengkap — termasuk rekomendasi rujukan dan intervensi berdasarkan <strong>Model Adaptasi Roy</strong>.</p>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="ilustrasi"
+             class="w-36 h-36 object-contain" />
+      </div>
+    </section>
+
+    <!-- FORM (cards) -->
+    <section id="formSection" class="space-y-6">
+
+      <!-- Vital Signs Card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <h2 class="font-semibold text-blue-800">1. Tanda Vital</h2>
+        <p class="text-sm text-slate-500 mb-3">Isi tekanan darah pasien saat pemeriksaan terakhir.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Tekanan Sistolik (mmHg)</label>
+            <input id="systolic" type="number" min="0" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" value="150">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Tekanan Diastolik (mmHg)</label>
+            <input id="diastolic" type="number" min="0" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" value="95">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Usia Kehamilan (minggu)</label>
+            <input id="gestAge" type="number" min="0" max="45" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" value="34">
+          </div>
+        </div>
+      </div>
+
+      <!-- Symptoms Card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <h2 class="font-semibold text-blue-800">2. Gejala yang Dialami</h2>
+        <p class="text-sm text-slate-500 mb-3">Centang gejala yang sedang dialami pasien.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="edema" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Pembengkakan tiba-tiba</span>
+          </label>
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="headache" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Sakit kepala berat</span>
+          </label>
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="vision" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Gangguan penglihatan</span>
+          </label>
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="epigastric" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Nyeri epigastrium / mual berat</span>
+          </label>
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="reducedFetal" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Gerak janin berkurang</span>
+          </label>
+          <label class="inline-flex items-center gap-2 p-2 border rounded-md">
+            <input id="seizure" type="checkbox" class="w-4 h-4">
+            <span class="text-slate-700">Kejang (jika pernah terjadi)</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Urine & History Card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <h2 class="font-semibold text-blue-800">3. Pemeriksaan Urine & Riwayat</h2>
+        <p class="text-sm text-slate-500 mb-3">Pilih hasil test strip dan riwayat pasien.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Proteinuria (test strip)</label>
+            <select id="protein" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2">
+              <option value="0">Negatif / 0</option>
+              <option value="1">+1</option>
+              <option value="2" selected>+2</option>
+              <option value="3">+3</option>
+            </select>
+            <p class="text-xs text-slate-500 mt-1">Jika ada hasil kuantitatif (mg/dL atau PCR) catat pada bagian catatan.</p>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Riwayat Hipertensi Sebelumnya</label>
+            <select id="historyHT" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2">
+              <option value="no">Tidak</option>
+              <option value="yes">Ya</option>
+              <option value="unknown">Tidak diketahui</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label class="block text-sm font-medium text-slate-700">Catatan tambahan (opsional)</label>
+          <textarea id="notes" rows="3" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" placeholder="Mis: riwayat preeklampsia pada kehamilan sebelumnya, DM, dsb."></textarea>
+        </div>
+      </div>
+
+      <!-- Demografi Card -->
+      <div class="bg-white rounded-xl shadow p-5">
+        <h2 class="font-semibold text-blue-800">4. Data Ibu</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Usia ibu (tahun)</label>
+            <input id="maternalAge" type="number" min="10" max="60" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" value="27">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Paritas (jumlah kehamilan sebelumnya)</label>
+            <input id="parity" type="number" min="0" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" value="1">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Berat badan (kg) — opsional</label>
+            <input id="weight" type="number" min="20" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm p-2" placeholder="mis. 60">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Card -->
+      <div class="flex gap-3 items-center">
+        <button id="submitBtn" class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-lg font-semibold shadow
+        transition duration-300 ease-in-out hover:scale-105 shadow-md hover:shadow-xl">Submit dan Lihat Hasil</button>
+        <button id="clearBtn" class="bg-white border border-slate-200 px-4 py-2 rounded-lg text-slate-700
+        transition duration-300 ease-in-out hover:scale-105 shadow-md hover:shadow-xl">Reset Form</button>
+        <div id="msg" class="text-sm text-red-600 ml-3"></div>
+      </div>
+
+    </section>
+
+    <!-- RESULT SECTION (hidden awalnya) -->
+    <section id="resultSection" class="mt-8 hidden">
+
+      <div class="bg-white rounded-xl shadow p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 id="resultTitle" class="text-2xl font-bold text-blue-800">Hasil Screening</h2>
+            <p id="resultSummary" class="text-slate-600 mt-1">Ringkasan singkat hasil dan rekomendasi.</p>
+          </div>
+          <div id="riskBadge" class="px-4 py-2 rounded-md font-semibold text-white"></div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Detail hasil -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h3 class="font-semibold text-slate-700">Data Input</h3>
+            <ul id="inputList" class="mt-2 text-slate-600 list-disc list-inside"></ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-slate-700">Rekomendasi Klinis Singkat</h3>
+            <div id="clinicalRec" class="mt-2 text-slate-600"></div>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <!-- Roy adaptation -->
+        <div>
+          <h3 class="font-semibold text-slate-700">Intervensi & Pendekatan (Model Adaptasi Roy)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mt-3">
+            <div class="p-3 border rounded-md">
+              <div class="font-semibold text-blue-700">Physiological</div>
+              <div id="royPhys" class="text-slate-600 text-sm mt-2"></div>
+            </div>
+            <div class="p-3 border rounded-md">
+              <div class="font-semibold text-blue-700">Self-Concept</div>
+              <div id="roySelf" class="text-slate-600 text-sm mt-2"></div>
+            </div>
+            <div class="p-3 border rounded-md">
+              <div class="font-semibold text-blue-700">Role Function</div>
+              <div id="royRole" class="text-slate-600 text-sm mt-2"></div>
+            </div>
+            <div class="p-3 border rounded-md">
+              <div class="font-semibold text-blue-700">Interdependence</div>
+              <div id="royInter" class="text-slate-600 text-sm mt-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <div class="flex gap-3">
+          <button id="downloadPdfBtn" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md
+          transition duration-300 ease-in-out hover:scale-105 shadow-md hover:shadow-xl">Download Hasil (PDF)</button>
+          <button id="backBtn" class="bg-white border border-slate-200 px-4 py-2 rounded-md 
+          transition duration-300 ease-in-out hover:scale-105 shadow-md hover:shadow-xl">Kembali ke Form</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Minimal JS: logic penilaian risiko & kontrol tampilan -->
+  <script>
+    // Helper: show element
+    const $ = id => document.getElementById(id);
+
+    // Submit handler
+    $('submitBtn').addEventListener('click', ()=> {
+      $('msg').textContent = '';
+      // ambil nilai
+      const sys = Number($('systolic').value || 0);
+      const dia = Number($('diastolic').value || 0);
+      const gest = Number($('gestAge').value || 0);
+      const protein = Number($('protein').value || 0);
+      const edema = $('edema').checked;
+      const headache = $('headache').checked;
+      const vision = $('vision').checked;
+      const epig = $('epigastric').checked;
+      const reducedFetal = $('reducedFetal').checked;
+      const seizure = $('seizure').checked;
+      const historyHT = $('historyHT').value;
+      const maternalAge = Number($('maternalAge').value || 0);
+      const parity = Number($('parity').value || 0);
+      const weight = $('weight').value || '';
+      const notes = $('notes').value || '';
+
+      // Validasi dasar
+      if (sys <= 0 || dia <= 0 || gest <= 0) {
+        $('msg').textContent = 'Harap isi Tekanan darah dan Usia kehamilan dengan nilai valid.';
+        return;
+      }
+      // Simple scoring rules (educational, bukan diagnosis definitif)
+      // beri poin: BP >=140/90 -> 2 ; protein >=2 -> 2 ; each ominous symptom -> 1 ; historyHT ->1 ; gest age >=20 -> 1
+      let score = 0;
+      if (sys >= 160 || dia >= 110) score += 4; // tanda bahaya berat
+      else if (sys >= 140 || dia >= 90) score += 2;
+
+      if (protein >= 2) score += 2;
+      if (edema) score += 1;
+      if (headache) score += 1;
+      if (vision) score += 1;
+      if (epig) score += 1;
+      if (reducedFetal) score += 1;
+      if (seizure) score += 4;
+      if (historyHT === 'yes') score += 1;
+      if (gest >= 20) score += 1;
+      if (maternalAge >= 35) score += 1;
+
+      // Determine category
+      let category = 'Rendah';
+      let color = 'bg-green-600';
+      if (score >= 7) { category = 'Tinggi (Kritis)'; color = 'bg-red-600'; }
+      else if (score >= 4) { category = 'Sedang'; color = 'bg-amber-600 text-black'; }
+
+      // Build input list summary
+      const inputs = [
+        `Tekanan darah: ${sys}/${dia} mmHg`,
+        `Usia kehamilan: ${gest} minggu`,
+        `Proteinuria (test strip): ${['Negatif','+1','+2','+3'][protein] || 'Negatif'}`,
+        `Pembengkakan: ${edema ? 'Ya' : 'Tidak'}`,
+        `Sakit kepala berat: ${headache ? 'Ya' : 'Tidak'}`,
+        `Gangguan penglihatan: ${vision ? 'Ya' : 'Tidak'}`,
+        `Nyeri epigastrium / mual berat: ${epig ? 'Ya' : 'Tidak'}`,
+        `Gerak janin berkurang: ${reducedFetal ? 'Ya' : 'Tidak'}`,
+        `Riwayat hipertensi: ${historyHT}`,
+        `Usia ibu: ${maternalAge} tahun`,
+        `Paritas: ${parity}`,
+        `Catatan: ${notes || '-'}`,
+      ];
+
+      // Clinical recommendation (simple logic)
+      let clinical = '';
+      if (score >= 7) {
+        clinical = `<strong>Rekomendasi:</strong> Risiko tinggi/krisis — segera rujuk ke rumah sakit rujukan. Pantau tanda vital, pasang akses IV jika perlu, jangan beri obat anti-hipertensi sendiri kecuali sesuai protokol medis. Evaluasi janin & persalinan sesuai indikasi.`;
+      } else if (score >= 4) {
+        clinical = `<strong>Rekomendasi:</strong> Evaluasi lebih lanjut di fasilitas kesehatan; ulang pengukuran BP, pemeriksaan urin kuantitatif dan lab (fungsi ginjal, trombosit), dan observasi gejala. Konsultasi dokter/bumil.`;
+      } else {
+        clinical = `<strong>Rekomendasi:</strong> Risiko rendah — edukasi tanda bahaya, kontrol antenatal rutin, ulang pemeriksaan jika gejala baru muncul.`;
+      }
+
+      // Roy adaptations (suggested interventions)
+      const roy = {
+        phys: '',
+        self: '',
+        role: '',
+        inter: ''
+      };
+
+      // Physiological suggestions
+      roy.phys = `Pantau BP secara berkala (setidaknya setiap 4-24 jam tergantung kategori). Periksa proteinuria kuantitatif, fungsi ginjal (kreatinin), serta hitung trombosit jika skor menengah/tinggi. ${score >=7 ? 'Segera stabilisasi dan rujuk.' : ''}`;
+
+      // Self-concept suggestions
+      roy.self = `Lakukan pendekatan konseling singkat: jelaskan hasil screening dengan bahasa sederhana, berikan dukungan emosional, tinjau kekhawatiran pasien, dan tawarkan kontak darurat/fasilitas rujukan. Berikan materi cetak/audio untuk meredakan kecemasan.`;
+
+      // Role function suggestions
+      roy.role = `Diskusikan dampak perawatan/rujukan terhadap peran ibu & keluarga (pekerjaan, pengasuhan). Rancang rencana dukungan keluarga (siapa mengantar, pengaturan anak lain) agar pasien bisa fokus pada perawatan.`;
+
+      // Interdependence suggestions
+      roy.inter = `Koordinasi dengan Puskesmas/Rumah Sakit rujukan: siapkan dokumen rujukan, hasil pemeriksaan awal, dan kontak anggota tim. Ajak keluarga untuk hadir dalam konseling agar dukungan sosial terjaga.`;
+
+      // Populate DOM
+      $('inputList').innerHTML = inputs.map(i => `<li>${i}</li>`).join('');
+      $('clinicalRec').innerHTML = clinical;
+
+      $('royPhys').textContent = roy.phys;
+      $('roySelf').textContent = roy.self;
+      $('royRole').textContent = roy.role;
+      $('royInter').textContent = roy.inter;
+
+      // Title & badge
+      $('resultTitle').textContent = `Hasil Screening — ${category}`;
+      $('resultSummary').textContent = `Skor (pendek): ${score}. Kategori risiko: ${category}.`;
+      const badge = $('riskBadge');
+      badge.className = 'px-4 py-2 rounded-md font-semibold text-white';
+      if (category.includes('Tinggi')) {
+        badge.classList.add('bg-red-600'); badge.textContent = 'Tinggi';
+      } else if (category === 'Sedang') {
+        badge.classList.add('bg-amber-600','text-black'); badge.textContent = 'Sedang';
+      } else {
+        badge.classList.add('bg-green-600'); badge.textContent = 'Rendah';
+      }
+
+      // hide form, show result
+      $('formSection').classList.add('hidden');
+      $('resultSection').classList.remove('hidden');
+      $('startOverBtn').classList.remove('hidden');
+
+      // Set download button (generate simple text PDF via print)
+      $('downloadPdfBtn').onclick = () => {
+        // Simple print of the result area
+        const original = document.body.innerHTML;
+        const resultHTML = $('resultSection').outerHTML;
+        document.body.innerHTML = resultHTML;
+        window.print();
+        document.body.innerHTML = original;
+        window.location.reload();
+      };
+
+    });
+
+    // Reset form
+    $('clearBtn').addEventListener('click', ()=> {
+      // reset basic fields
+      ['systolic','diastolic','gestAge','protein','historyHT','maternalAge','parity','weight','notes'].forEach(id => {
+        const el = $(id);
+        if(!el) return;
+        if(el.tagName === 'SELECT' || el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.selectedIndex = 0;
+        if(el.type === 'number') el.value = '';
+        if(el.tagName === 'TEXTAREA') el.value = '';
+      });
+      // uncheck checkboxes
+      ['edema','headache','vision','epigastric','reducedFetal','seizure'].forEach(id => { if($(id)) $(id).checked = false; });
+      // set defaults
+      $('systolic').value = '120';
+      $('diastolic').value = '80';
+      $('gestAge').value = '32';
+      $('maternalAge').value = '27';
+      $('msg').textContent = '';
+    });
+
+    // Back button
+    $('backBtn').addEventListener('click', ()=> {
+      $('resultSection').classList.add('hidden');
+      $('formSection').classList.remove('hidden');
+      $('startOverBtn').classList.add('hidden');
+      // Scroll to top of form
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    // Start over button
+    $('startOverBtn').addEventListener('click', ()=> {
+      $('backBtn').click();
+    });
+
+  </script>
+
+</body>
+</html>
