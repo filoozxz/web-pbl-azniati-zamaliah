@@ -17,11 +17,12 @@
 <body class="bg-gray-100 text-gray-800">
 
     <!-- NAVBAR -->
-    <nav class="bg-blue-700 text-white py-4 shadow-lg" data-aos="fade-down" data-aos-duration="800">
+    <!-- <nav class="bg-blue-700 text-white py-4 shadow-lg" data-aos="fade-down" data-aos-duration="800">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a link href="index.html">
             <h1 class="text-xl md:text-2xl font-bold tracking-wide">
                 DETEKSI DINI PREEKLAMSIA
-            </h1>
+            </h1></a>
             <a href="quiz.html" target="_blank">
                 <button class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200
                 transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl">
@@ -29,7 +30,78 @@
                 </button>
             </a>
         </div>
-    </nav>
+    </nav> -->
+    <header class="bg-gradient-to-r from-blue-700 to-blue-400 text-white">
+        <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+            <a class="block text-teal-600" href="index.html">
+                <span class="sr-only">Home</span>
+                <img src="icon.png" alt="Deskripsi Icon" class="h-8 auto">
+            </a>
+
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm text-white">
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="index.html"> Home </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="aboutme.html" target="_blank"> About Me
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="journal.html" target="_blank"> Journal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="casestudy.html" target="_blank"> Case
+                                Study </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <div class="sm:flex sm:gap-4">
+                        <a class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200
+                                    transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                            href="quiz.html" target="_blank">
+                            Menu Screening
+                        </a>
+                    </div>
+
+                    <button id="button-menu"
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-r from-blue-700 to-blue-400 text-white
+                    w-1/2 fixed z-50 top-16 bottom-0 right-0">
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="index.html"> Home</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="aboutme.html"
+                            target="_blank"> About Me</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="journal.html"
+                            target="_blank"> Journal</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="casestudy.html"
+                            target="_blank"> Case Study </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile toggle Menu-->
+    <script>
+        const toggleButton = document.getElementById('button-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });</script>
 
     <!-- HERO -->
     <section class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-2 gap-10 items-center" data-aos="fade-down"
@@ -65,6 +137,9 @@
             Preeklampsia adalah kondisi berbahaya pada kehamilan yang ditandai oleh tekanan darah tinggi
             dan adanya protein di dalam urin (proteinuria). Kondisi ini biasanya muncul setelah usia kehamilan
             20 minggu dan dapat membahayakan ibu serta janin jika tidak ditangani dengan cepat.
+            <a href="https://youtu.be/Zp9SN0kIk-g?si=mBpJ5z_1XIEfgEHB"
+            target="_blank" rel="noreferrer noopener">
+            <p class="font-light text-blue-500">click here for detail</p> </a>
         </div>
     </section>
 
@@ -128,33 +203,33 @@
     </section>
 
     <!-- PROFIL -->
-    <section class="max-w-7xl mx-auto px-6 py-14"
-                data-aos="fade-up" data-aos-duration="800">
+    <section class="max-w-7xl mx-auto px-6 py-14" data-aos="fade-up" data-aos-duration="800">
         <h3 class="text-2xl font-bold text-blue-700 mb-6 text-center">Profil Mahasiswa</h3>
 
         <div class="flex justify-center">
 
             <div class="bg-white p-6 rounded-xl shadow-md text-center transition duration-300 ease-in-out 
             hover:scale-105 shadow-md hover:shadow-xl hover:bg-blue-100">
-            <a href="aboutme.html" target="_blank">
-                
-                <div
-                class="w-24 h-24 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-4xl text-blue-700 font-bold transition duration-300 ease-in-out 
+
+                    <div class="w-24 h-24 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-4xl text-blue-700 font-bold transition duration-300 ease-in-out 
                 hover:scale-105 shadow-md hover:shadow-xl">
-                A
+                        A
+                    </div>
+                    <h4 class="mt-4 text-xl font-bold">Azniati Zamaliah</h4>
+                    <p class="text-gray-600 mt-1">NIM: 251101160</p>
+                    <p class="text-gray-600">Ilmu Keperawatan</p>
+                    <a href="aboutme.html" target="_blank">
+                        <p class="font-light text-blue-500">click here for detail</p>
+                    </a>
             </div>
-            <h4 class="mt-4 text-xl font-bold">Azniati Zamaliah</h4>
-            <p class="text-gray-600 mt-1">NIM: 251101160</p>
-            <p class="text-gray-600">Ilmu Keperawatan</p>
-        </div>
-            </a>
 
         </div>
     </section>
 
     <!-- FOOTER -->
-     <footer class="mt-10">
-        <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white py-10" data-aos="fade-up" data-aos-duration="900">
+    <footer class="mt-10">
+        <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white py-10" data-aos="fade-up"
+            data-aos-duration="900">
             <div class="max-w-7xl mx-auto px-6 text-center space-y-2">
                 <h4 class="font-bold text-lg">
                     WEB EDUKASI UNTUK DETEKSI DINI PREEKLAMSIA BERDASARKAN MODEL ADAPTASI ROY
@@ -168,9 +243,7 @@
 
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script> AOS.init(); </script>
 </body>
 
 </html>

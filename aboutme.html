@@ -16,41 +16,71 @@
 </head>
 
 <body>
-    <!-- About Me -->
-    <div id="about" class="relative bg-white overflow-hidden mt-16">
-        <div class="max-w-7xl mx-auto">
-            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-                    fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                    <polygon points="50,0 100,0 50,100 0,100"></polygon>
-                </svg>
+    <!-- NAVBAR -->
+    <nav class="bg-blue-700 text-white py-4 shadow-lg" data-aos="fade-down" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a link href="aboutme.html">
+                <h1 class="text-xl md:text-2xl font-bold tracking-wide">
+                    About Me
+                </h1>
+            </a>
+        </div>
+    </nav>
 
-                <div class="pt-1"></div>
+    <!-- ABOUT ME -->
+    <section class="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:items-center">
+        <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+            <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+                <h2 class="text-2xl font-bold text-gray-900 md:text-3xl">
+                    About Me - Azniati Zamaliah
+                </h2>
 
-                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-                    <div class="sm:text-center lg:text-left">
-                        <h2 class="my-6 text-2xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl">
-                            About me
-                        </h2>
+                <p class="text-gray-500">
+                    Halo! Saya Azniati Zamaliah, mahasiswa Jurusan Ilmu Keperawatan, Universitas Sumatera Utara. Saya
+                    memiliki ketertarikan pada bidang kesehatan ibu dan anak, khususnya dalam pencegahan komplikasi
+                    kehamilan seperti preeklamsia.
 
-                        <p>
-                        Ilmu keperawatan adalah ilmu yang mempelajari<br>
-                        cara memberikan pelayanan kesehatan secara komprehensif kepada individu, keluarga, dan masyarakat, baik dalam kondisi sehat maupun sakit.<br>
-                        Tujuannya adalah untuk meningkatkan derajat kesehatan, mencegah penyakit, memulihkan kesehatan, dan pemeliharaan kesehatan, yang meliputi aspek bio-psiko-sosio-spiritual.<br>
-                        Ilmu ini mempersiapkan perawat profesional untuk memberikan asuhan keperawatan yang efektif, berdasarkan pengetahuan ilmiah, etika, dan empati.<br><br>
-                        Saya merupakan Mahasiswa Ilmu keperawatan.<br>
-                        Nama: AZNIATI ZAMALIAH<br>
-                        NIM: 251101160
-                        </p>
-                    </div>
-                </main>
+                    Melalui web ini, saya bertujuan untuk:
+
+                    Menyediakan informasi edukatif mengenai preeklamsia secara jelas dan mudah dipahami.
+
+                    Membantu masyarakat mengenali tanda dan gejala awal preeklamsia.
+
+                    Meningkatkan kesadaran akan pentingnya pemeriksaan antenatal secara rutin.
+
+
+                    Harapan saya, web ini dapat menjadi sarana pengetahuan yang bermanfaat dalam meningkatkan pemahaman
+                    masyarakat serta membantu upaya pencegahan risiko terhadap ibu dan bayi.
+
+                    Terima kasih sudah berkunjung! Semoga informasi yang tersedia dapat membantu dan memberi manfaat
+                    bagi banyak orang.
+                </p>
             </div>
         </div>
-        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
-                src="azni.jpg" alt="">
+
+        <img alt=""
+            src="azni.jpg"
+            class="h-full w-full object-cover sm:h-[calc(100%-2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%-4rem)] md:rounded-ss-[60px]">
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-10">
+        <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white py-10" data-aos="fade-up"
+            data-aos-duration="900">
+            <div class="max-w-7xl mx-auto px-6 text-center space-y-2">
+                <h4 class="font-bold text-lg">
+                    WEB EDUKASI UNTUK DETEKSI DINI PREEKLAMSIA BERDASARKAN MODEL ADAPTASI ROY
+                </h4>
+                <p>UNIVERSITAS SUMATERA UTARA / KEPERAWATAN / ILMU KEPERAWATAN</p>
+                <p>Azniati Zamaliah / 251101160</p>
+                <p>© 2025</p>
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script> AOS.init(); </script>
 </body>
 
 </html>
