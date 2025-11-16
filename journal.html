@@ -17,16 +17,84 @@
 
 <body class="bg-gray-100 text-gray-800">
     <!-- NAVBAR -->
-    <nav class="bg-blue-700 text-white py-4 shadow-lg" data-aos="fade-down" data-aos-duration="800">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <header class="bg-gradient-to-r from-blue-700 to-blue-400 text-white">
+        <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
             <a link href="journal.html">
                 <h1 class="text-xl md:text-2xl font-bold tracking-wide">
                     Journal
                 </h1>
             </a>
-        </div>
-    </nav>
 
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm text-white">
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="index.html" target="_blank"> Home </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="aboutme.html" target="_blank"> About Me
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="journal.html"> Journal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="casestudy.html" target="_blank"> Case
+                                Study </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <div class="sm:flex sm:gap-4">
+                        <a class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200
+                                    transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                            href="quiz.html" target="_blank">
+                            Menu Screening
+                        </a>
+                    </div>
+
+                    <!-- BUTTON MENU MOBILE -->
+                    <button id="button-menu"
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-menu" class="opacity-0 transition-all duration-500 translate-x-full md:hidden bg-gradient-to-r from-blue-700 to-blue-400 text-white
+                    w-1/2 fixed z-50 top-16 bottom-0 right-0">
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="index.html"
+                            target="_blank"> Home</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="aboutme.html" target="_blank"> About
+                            Me</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="journal.html"> Journal</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="casestudy.html"
+                            target="_blank"> Case Study </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile toggle Menu-->
+    <script>
+        const toggleButton = document.getElementById('button-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+            mobileMenu.classList.toggle('opacity-0');
+            mobileMenu.classList.toggle('opacity-100');
+            body.classList.toggle('overflow-hidden');
+        });</script>
     <!-- ISI JURNAL -->
     <section class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10" data-aos="fade-up" data-aos-duration="800">
         <!-- 1 -->
@@ -44,7 +112,7 @@
                 </svg>
             </span>
 
-            <a href="#">
+            <a href="https://share.google/MoVrjKz678aJAFEIt" target="_blank" rel="noopener noreferrer">
                 <h3 class="mt-0.5 text-lg font-medium text-gray-900">
                     SYSTEMATIC REVIEW: DETEKSI DINI PENCEGAHAN PREEKLAMSIA PADA IBU
                     HAMIL
@@ -59,7 +127,8 @@
                 menyebabkan hampir 75% ibu mengalami kematian
             </p>
 
-            <a href="#" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+            <a href="https://share.google/MoVrjKz678aJAFEIt" target="_blank" rel="noopener noreferrer"
+            class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
                 Find out more
 
                 <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
@@ -82,7 +151,7 @@
                 </svg>
             </span>
 
-            <a href="#">
+            <a href="https://share.google/2cGvAtjNPf8tlffFA" target="_blank" rel="noopener noreferrer">
                 <h3 class="mt-0.5 text-lg font-medium text-gray-900">
                     STRATEGI PENCEGAHAN PREEKLAMSIA MELALUI EDUKASI KESEHATAN
                     UNTUK MENINGKATKAN DETEKSI DINI PREEKLAMSIA
@@ -97,7 +166,8 @@
                 penghambat dalam upaya deteksi dan penanganan dini. Kegiatan p
             </p>
 
-            <a href="#" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+            <a href="https://share.google/2cGvAtjNPf8tlffFA" target="_blank" rel="noopener noreferrer"
+            class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
                 Find out more
 
                 <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
@@ -121,7 +191,7 @@
                 </svg>
             </span>
 
-            <a href="#">
+            <a href="https://share.google/7g0Dmp6ABoxbkQTEE" target="_blank" rel="noopener noreferrer">
                 <h3 class="mt-0.5 text-lg font-medium text-gray-900">
                     ROLL OVER TEST SEBAGAI PREDIKSI PRE EKLAMSI PADA IBU HAMIL
                 </h3>
@@ -135,7 +205,8 @@
                 quickly
             </p>
 
-            <a href="#" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+            <a href="https://share.google/7g0Dmp6ABoxbkQTEE" target="_blank" rel="noopener noreferrer"
+            class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
                 Find out more
 
                 <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
