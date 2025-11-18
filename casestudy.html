@@ -1,13 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study</title>
     <link rel="icon" type="icon/png" href="icon.png">
 
+
+    <!-- TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
-    halo ini berisi studi kasus
+    <!-- NAVBAR -->
+    <header class="bg-gradient-to-r from-blue-700 to-blue-400 text-white">
+        <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+            <a link href="aboutme.html">
+                <h1 class="text-xl md:text-2xl font-bold tracking-wide">
+                    Case Study
+                </h1>
+            </a>
+
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <nav aria-label="Global" class="hidden md:block">
+                    <ul class="flex items-center gap-6 text-sm text-white">
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="index.html" target="_blank"> Home </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="aboutme.html" target="_blank"> About Me
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="journal.html" target="_blank"> Journal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="transition hover:text-blue-500/75" href="casestudy.html"> Case
+                                Study </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <div class="sm:flex sm:gap-4">
+                        <a class="bg-white text-blue-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-200
+                                    transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+                            href="quiz.html" target="_blank">
+                            Menu Screening
+                        </a>
+                    </div>
+
+                    <!-- BUTTON MENU MOBILE -->
+                    <button id="button-menu"
+                        class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div id="mobile-menu" class="opacity-0 transition-all duration-500 translate-x-full md:hidden bg-gradient-to-r from-blue-700 to-blue-400 text-white
+                    w-1/2 fixed z-50 top-16 bottom-0 right-0">
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="index.html"
+                            target="_blank"> Home</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="aboutme.html"
+                            target="_blank"> About
+                            Me</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="journal.html"
+                            target="_blank"> Journal</a>
+                        <a class="block p-4 border-b transition hover:text-blue-500/75" href="casestudy.html"> Case
+                            Study </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile toggle Menu-->
+    <script>
+        const toggleButton = document.getElementById('button-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', function () {
+            mobileMenu.classList.toggle('translate-x-full');
+            mobileMenu.classList.toggle('translate-x-0');
+            mobileMenu.classList.toggle('opacity-0');
+            mobileMenu.classList.toggle('opacity-100');
+            body.classList.toggle('overflow-hidden');
+        });</script>
+
+    <!-- ISI STUDI KASUS -->
+    <section class="container mx-auto p-6 space-y-8">
+
+        <!-- Latar Belakang -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">A. Latar Belakang Kasus</h3>
+            <p>
+                Ny. A, seorang ibu hamil 22 tahun usia kehamilan 30 minggu,
+                datang dengan keluhan sakit kepala, bengkak kaki, cepat lelah, dan pandangan kabur.
+                Tekanan darah meningkat, proteinuria positif, dan riwayat ibu dengan preeklamsia.
+            </p>
+        </div>
+
+        <!-- Data Pengkajian -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">B. Data Pengkajian</h3>
+
+            <h4 class="font-semibold">1. Data Subjektif</h4>
+            <ul class="list-disc ml-6 mb-4">
+                <li>“Kepala saya nyut-nyutan…”</li>
+                <li>“Kaki saya bengkak…”</li>
+                <li>"Kadang pandangan saya kabur…”</li>
+            </ul>
+
+            <h4 class="font-semibold">2. Data Objektif</h4>
+            <ul class="list-disc ml-6">
+                <li>TD: 148/92 mmHg</li>
+                <li>Protein urin: (+1)</li>
+                <li>Edema grade 1–2</li>
+                <li>Nadi: 96x/menit</li>
+            </ul>
+        </div>
+
+        <!-- Model Adaptasi Roy -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">C. Analisis (Model Adaptasi Roy)</h3>
+
+            <p><span class="font-semibold">Mode Fisiologis:</span> Hipertensi, proteinuria, edema.</p>
+            <p><span class="font-semibold">Mode Konsep Diri:</span> Ibu cemas tentang kehamilannya.</p>
+            <p><span class="font-semibold">Mode Fungsi Peran:</span> Ibu baru, minim pengetahuan risiko.</p>
+            <p><span class="font-semibold">Mode Interdependensi:</span> Dukungan ada, tapi kurang edukasi.</p>
+        </div>
+
+        <!-- Diagnosa Keperawatan -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">D. Diagnosa Keperawatan</h3>
+            <ol class="list-decimal ml-6">
+                <li>Risiko tinggi preeklamsia terkait hipertensi.</li>
+                <li>Kurang pengetahuan terkait tanda bahaya kehamilan.</li>
+                <li>Cemas terkait kondisi kesehatan.</li>
+            </ol>
+        </div>
+
+        <!-- Intervensi -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">E. Intervensi Keperawatan</h3>
+            <ul class="list-disc ml-6 space-y-1">
+                <li>Monitoring tekanan darah dan urine.</li>
+                <li>Edukasi istirahat miring kiri.</li>
+                <li>Kelas ibu hamil & dukungan keluarga.</li>
+                <li>Kolaborasi dokter untuk terapi farmakologi.</li>
+            </ul>
+        </div>
+
+        <!-- Pertanyaan PBL -->
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold mb-3">F. Pertanyaan Diskusi PBL</h3>
+            <ol class="list-decimal ml-6 space-y-1">
+                <li>Diagnosis awal apa yang ditegakkan?</li>
+                <li>Apa faktor risiko Ny. A?</li>
+                <li>Bagaimana analisis Roy Model?</li>
+                <li>Intervensi prioritas?</li>
+                <li>Edukasi penting apa?</li>
+                <li>Potensi komplikasi?</li>
+                <li>Bagaimana web edukasi membantu?</li>
+            </ol>
+        </div>
+
+        <!-- Kesimpulan -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-md">
+            <h3 class="text-2xl font-bold text-indigo-700 mb-2">G. Kesimpulan</h3>
+            <p>
+                Deteksi dini preeklamsia sangat penting karena dapat membahayakan ibu dan janin.
+                Model Adaptasi Roy membantu menilai pasien secara holistik dan menentukan intervensi yang tepat.
+                Web edukasi dapat menjadi media efektif untuk pemahaman ibu dan keluarga.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-10">
+        <div class="bg-gradient-to-r from-blue-700 to-blue-400 text-white py-10" data-aos="fade-up"
+            data-aos-duration="900">
+            <div class="max-w-7xl mx-auto px-6 text-center space-y-2">
+                <h4 class="font-bold text-lg">
+                    WEB EDUKASI UNTUK DETEKSI DINI PREEKLAMSIA BERDASARKAN MODEL ADAPTASI ROY
+                </h4>
+                <p>UNIVERSITAS SUMATERA UTARA / KEPERAWATAN / ILMU KEPERAWATAN</p>
+                <p>Azniati Zamaliah / 251101160</p>
+                <p>© 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script> AOS.init(); </script>
 </body>
+
 </html>
